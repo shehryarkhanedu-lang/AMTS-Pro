@@ -3,20 +3,29 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: AMTS Pro – Multi-Strategy Trading Intelligence Platform API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: market
+    description: Market data
+  - name: strategies
+    description: Strategy metadata & performance
+  - name: signals
+    description: Trading signals
+  - name: dashboard
+    description: Dashboard aggregates
+  - name: meta
+    description: Configuration metadata
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -24,13 +33,391 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /pairs:
+    get:
+      operationId: listPairs
+      tags: [meta]
+      summary: List supported trading pairs
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Pair"
+
+  /timeframes:
+    get:
+      operationId: listTimeframes
+      tags: [meta]
+      summary: List supported timeframes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Timeframe"
+
+  /strategies:
+    get:
+      operationId: listStrategies
+      tags: [strategies]
+      summary: List all available strategies and their metadata
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Strategy"
+
+  /strategies/performance:
+    get:
+      operationId: getStrategyPerformance
+      tags: [strategies]
+      summary: Per-strategy historical performance (count, accuracy estimate)
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+        - { in: query, name: timeframe, schema: { type: string }, required: true }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/StrategyPerformance"
+
+  /market/ticker:
+    get:
+      operationId: getTicker
+      tags: [market]
+      summary: Latest ticker (last price + 24h change)
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ticker"
+
+  /market/candles:
+    get:
+      operationId: getCandles
+      tags: [market]
+      summary: OHLC candles
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+        - { in: query, name: timeframe, schema: { type: string }, required: true }
+        - { in: query, name: limit, schema: { type: integer, default: 200, minimum: 10, maximum: 500 } }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Candle"
+
+  /signals/top:
+    get:
+      operationId: getTopSignal
+      tags: [signals]
+      summary: Top-ranked signal across all strategies (highest confidence)
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+        - { in: query, name: timeframe, schema: { type: string }, required: true }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TopSignalResponse"
+
+  /signals/all:
+    get:
+      operationId: getAllSignals
+      tags: [signals]
+      summary: Latest signal from every enabled strategy (sorted by confidence)
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+        - { in: query, name: timeframe, schema: { type: string }, required: true }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Signal"
+
+  /signals/conflicts:
+    get:
+      operationId: getConflicts
+      tags: [signals]
+      summary: Conflict analysis between BUY/SELL/WAIT signals
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+        - { in: query, name: timeframe, schema: { type: string }, required: true }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConflictReport"
+
+  /signals/history:
+    get:
+      operationId: getSignalHistory
+      tags: [signals]
+      summary: Historical signals
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+        - { in: query, name: timeframe, schema: { type: string }, required: true }
+        - { in: query, name: limit, schema: { type: integer, default: 100, minimum: 1, maximum: 500 } }
+        - { in: query, name: strategyKey, schema: { type: string } }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Signal"
+
+  /dashboard/summary:
+    get:
+      operationId: getDashboardSummary
+      tags: [dashboard]
+      summary: Aggregated dashboard summary — top signal, votes, breakdown
+      parameters:
+        - { in: query, name: pair, schema: { type: string }, required: true }
+        - { in: query, name: timeframe, schema: { type: string }, required: true }
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+
 components:
   schemas:
     HealthStatus:
       type: object
       properties:
-        status:
-          type: string
-      required:
-        - status
+        status: { type: string }
+      required: [status]
 
+    SignalType:
+      type: string
+      enum: [BUY, SELL, WAIT]
+
+    StrategyMode:
+      type: string
+      enum: [BEGINNER, PRO]
+
+    StrategyCategory:
+      type: string
+      enum:
+        - TREND
+        - RANGE
+        - MOMENTUM
+        - BREAKOUT
+        - SCALPING
+        - SWING
+        - PRICE_ACTION
+        - SMART_MONEY
+        - SUPPLY_DEMAND
+        - INDICATOR
+        - QUANT
+        - CRYPTO
+        - HIGH_RISK
+
+    RiskLevel:
+      type: string
+      enum: [LOW, MEDIUM, HIGH]
+
+    Pair:
+      type: object
+      required: [symbol, label]
+      properties:
+        symbol: { type: string }
+        label: { type: string }
+
+    Timeframe:
+      type: object
+      required: [value, label, description]
+      properties:
+        value: { type: string }
+        label: { type: string }
+        description: { type: string }
+
+    Strategy:
+      type: object
+      required: [key, name, category, mode, riskLevel, description]
+      properties:
+        key: { type: string }
+        name: { type: string }
+        category: { $ref: "#/components/schemas/StrategyCategory" }
+        mode: { $ref: "#/components/schemas/StrategyMode" }
+        riskLevel: { $ref: "#/components/schemas/RiskLevel" }
+        description: { type: string }
+        logic: { type: string }
+
+    Candle:
+      type: object
+      required: [openTime, open, high, low, close, volume]
+      properties:
+        openTime: { type: integer, format: int64 }
+        open: { type: number }
+        high: { type: number }
+        low: { type: number }
+        close: { type: number }
+        volume: { type: number }
+
+    Ticker:
+      type: object
+      required: [pair, lastPrice, change24h, changePercent24h, high24h, low24h, volume24h, updatedAt]
+      properties:
+        pair: { type: string }
+        lastPrice: { type: number }
+        change24h: { type: number }
+        changePercent24h: { type: number }
+        high24h: { type: number }
+        low24h: { type: number }
+        volume24h: { type: number }
+        updatedAt: { type: string, format: date-time }
+
+    Signal:
+      type: object
+      required:
+        - id
+        - strategyKey
+        - strategyName
+        - category
+        - signal
+        - confidence
+        - entry
+        - stopLoss
+        - takeProfit
+        - pair
+        - timeframe
+        - rationale
+        - riskLevel
+        - createdAt
+      properties:
+        id: { type: string }
+        strategyKey: { type: string }
+        strategyName: { type: string }
+        category: { $ref: "#/components/schemas/StrategyCategory" }
+        signal: { $ref: "#/components/schemas/SignalType" }
+        confidence: { type: number, minimum: 0, maximum: 100 }
+        entry: { type: number }
+        stopLoss: { type: number }
+        takeProfit: { type: number }
+        pair: { type: string }
+        timeframe: { type: string }
+        rationale: { type: string }
+        riskLevel: { $ref: "#/components/schemas/RiskLevel" }
+        createdAt: { type: string, format: date-time }
+
+    TopSignalResponse:
+      type: object
+      required: [top, supporting, conflicting, totalStrategies]
+      properties:
+        top:
+          oneOf:
+            - $ref: "#/components/schemas/Signal"
+            - type: "null"
+        supporting:
+          type: array
+          items: { $ref: "#/components/schemas/Signal" }
+        conflicting:
+          type: array
+          items: { $ref: "#/components/schemas/Signal" }
+        totalStrategies: { type: integer }
+
+    ConflictReport:
+      type: object
+      required: [hasConflict, buyCount, sellCount, waitCount, dominant, message]
+      properties:
+        hasConflict: { type: boolean }
+        buyCount: { type: integer }
+        sellCount: { type: integer }
+        waitCount: { type: integer }
+        dominant: { $ref: "#/components/schemas/SignalType" }
+        message: { type: string }
+
+    StrategyPerformance:
+      type: object
+      required: [strategyKey, strategyName, totalSignals, buyCount, sellCount, waitCount, avgConfidence]
+      properties:
+        strategyKey: { type: string }
+        strategyName: { type: string }
+        totalSignals: { type: integer }
+        buyCount: { type: integer }
+        sellCount: { type: integer }
+        waitCount: { type: integer }
+        avgConfidence: { type: number }
+
+    SignalDistribution:
+      type: object
+      required: [buy, sell, wait]
+      properties:
+        buy: { type: integer }
+        sell: { type: integer }
+        wait: { type: integer }
+
+    CategoryBreakdown:
+      type: object
+      required: [category, signal, avgConfidence, count]
+      properties:
+        category: { $ref: "#/components/schemas/StrategyCategory" }
+        signal: { $ref: "#/components/schemas/SignalType" }
+        avgConfidence: { type: number }
+        count: { type: integer }
+
+    DashboardSummary:
+      type: object
+      required:
+        - pair
+        - timeframe
+        - ticker
+        - top
+        - distribution
+        - categoryBreakdown
+        - conflict
+        - lastUpdated
+        - strategiesActive
+      properties:
+        pair: { type: string }
+        timeframe: { type: string }
+        ticker: { $ref: "#/components/schemas/Ticker" }
+        top:
+          oneOf:
+            - $ref: "#/components/schemas/Signal"
+            - type: "null"
+        distribution: { $ref: "#/components/schemas/SignalDistribution" }
+        categoryBreakdown:
+          type: array
+          items: { $ref: "#/components/schemas/CategoryBreakdown" }
+        conflict: { $ref: "#/components/schemas/ConflictReport" }
+        lastUpdated: { type: string, format: date-time }
+        strategiesActive: { type: integer }

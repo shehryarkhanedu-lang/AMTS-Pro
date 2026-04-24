@@ -1,0 +1,346 @@
+Build a full-stack SaaS web application called:
+
+"AMTS Pro – Multi-Strategy Trading Intelligence Platform"
+
+---
+
+🎯 CORE PURPOSE:
+
+A modular trading intelligence platform that provides BUY / SELL / WAIT signals based on multiple trading strategies.
+
+The system must NOT blindly combine all strategies. Instead:
+
+- Each strategy generates its own signal
+- A scoring system ranks signals
+- The system outputs the highest-confidence signal
+
+No auto trading. Signals only.
+
+---
+
+🧠 STRATEGY ENGINE ARCHITECTURE:
+
+The app must support 6 PRIMARY STRATEGY CATEGORIES:
+
+---
+
+1. TREND TRADING
+
+Logic:
+
+- Trade in direction of trend
+
+Strategies:
+
+- EMA 50 / EMA 200 crossover
+- Moving average trend following
+
+Rules:
+
+- Uptrend → BUY only
+- Downtrend → SELL only
+
+---
+
+2. RANGE TRADING
+
+Logic:
+
+- Buy at support, sell at resistance
+
+Strategies:
+
+- Support & Resistance zones
+- Horizontal range trading
+
+Rules:
+
+- Near support → BUY
+- Near resistance → SELL
+
+---
+
+3. MOMENTUM / RSI TRADING
+
+Use:
+
+- RSI indicator
+
+Strategies:
+
+- Overbought / Oversold
+- Mean reversion
+
+Rules:
+
+- RSI < 30 → BUY
+- RSI > 70 → SELL
+
+---
+
+4. BREAKOUT TRADING
+
+Logic:
+
+- Trade when price breaks key levels
+
+Strategies:
+
+- Resistance breakout
+- Break and hold strategy
+
+Rules:
+
+- Break above resistance + volume → BUY
+- Break below support → SELL
+
+---
+
+5. SCALPING STRATEGY
+
+Logic:
+
+- Fast trades, small profits
+
+Strategies:
+
+- 1-minute / 5-minute quick entries
+- Micro trend trades
+
+Rules:
+
+- Quick entry/exit signals
+- High frequency signals
+
+---
+
+6. SWING + EVENT TRADING
+
+Logic:
+
+- Hold trades longer or trade major events
+
+Strategies:
+
+- Fibonacci retracement
+- News trading (CPI, interest rates, earnings)
+
+---
+
+📊 ADDITIONAL STRATEGY MODULES:
+
+The system must also support these sub-strategies:
+
+PRICE ACTION:
+
+- Support & resistance
+- Candlestick patterns
+- Chart patterns
+
+SMART MONEY CONCEPT (ICT):
+
+- Liquidity zones
+- Stop hunts
+- Order blocks
+
+SUPPLY & DEMAND:
+
+- Zone-based entries
+
+INDICATOR-BASED:
+
+- MACD
+- Bollinger Bands
+- Volume analysis
+
+QUANT / ADVANCED:
+
+- Mean reversion
+- Arbitrage (crypto)
+- Pair trading (stocks)
+- Hedging (forex/stocks)
+
+CRYPTO-SPECIFIC:
+
+- Grid trading logic
+- Funding rate awareness (optional)
+
+HIGH-RISK:
+
+- Martingale (must be labeled high risk)
+
+---
+
+🧠 SIGNAL ENGINE DESIGN:
+
+Each strategy must:
+
+1. Run independently
+2. Output:
+
+{
+strategy_name: "",
+signal: "BUY" | "SELL" | "WAIT",
+confidence_score: 0–100,
+entry: number,
+stop_loss: number,
+take_profit: number
+}
+
+---
+
+📊 SIGNAL AGGREGATION SYSTEM:
+
+- Combine all strategy outputs
+- Rank by confidence score
+- Display:
+
+1. Top Signal (highest confidence)
+2. Supporting signals
+3. Conflicting signals warning
+
+---
+
+⚙️ CORE FEATURES:
+
+1. STRATEGY SELECTOR
+
+- User can enable/disable strategies
+- Beginner mode: limited strategies
+- Advanced mode: all strategies
+
+2. DASHBOARD
+
+- Current top signal
+- Confidence score
+- Strategy breakdown
+- Entry / SL / TP
+
+3. MULTI-SIGNAL PANEL
+
+- Show signals from all strategies
+- Color-coded
+
+4. SIGNAL HISTORY
+
+- Track past signals
+- Show performance
+
+5. SETTINGS
+
+- Pair selection (BTC/USDT initially)
+- Timeframe:
+  - 1m (scalping)
+  - 5m
+  - 15m
+  - 1h
+  - 4h (swing)
+
+---
+
+📡 DATA SOURCE:
+
+Use Binance API:
+
+- OHLC candles
+- Volume data
+
+---
+
+⚙️ BACKEND LOGIC:
+
+1. Fetch market data every 1 minute
+2. Run all enabled strategies
+3. Generate signals
+4. Store results in database
+5. Rank signals
+6. Serve top signal to frontend
+
+---
+
+💾 DATABASE:
+
+users:
+
+- id
+- email
+- preferences
+
+signals:
+
+- id
+- strategy_name
+- signal_type
+- confidence_score
+- entry
+- stop_loss
+- take_profit
+- timestamp
+
+---
+
+🔐 AUTH:
+
+- Email magic link login (Supabase)
+
+---
+
+🎨 UI DESIGN:
+
+- Dark theme
+- Clean trading dashboard
+- Highlight:
+  - BUY (green)
+  - SELL (red)
+  - WAIT (gray)
+
+---
+
+📱 UX FEATURES:
+
+- Beginner Mode:
+  
+  - Only trend + RSI
+
+- Pro Mode:
+  
+  - All strategies enabled
+
+---
+
+⚡ PERFORMANCE RULES:
+
+- Calculate signals once globally
+- Cache results
+- Do NOT compute per user
+
+---
+
+🚀 DEPLOYMENT:
+
+- Next.js (frontend + API)
+- Supabase (DB + Auth)
+- Vercel (hosting)
+
+---
+
+⚠️ CONSTRAINTS:
+
+- No auto trading
+- No payment system
+- No overcomplicated AI models
+
+---
+
+🎯 FINAL GOAL:
+
+A multi-strategy trading intelligence platform that:
+
+- Educates users
+- Provides structured signals
+- Shows multiple strategy perspectives
+- Helps users make better decisions
+
+---
+
+END OF MASTER PROMPT
