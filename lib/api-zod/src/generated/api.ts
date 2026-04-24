@@ -20,6 +20,15 @@ export const HealthCheckResponse = zod.object({
 export const ListPairsResponseItem = zod.object({
   symbol: zod.string(),
   label: zod.string(),
+  assetClass: zod.enum([
+    "CRYPTO",
+    "FOREX",
+    "COMMODITIES",
+    "INDICES",
+    "ETFS",
+    "STOCKS",
+  ]),
+  assetClassLabel: zod.string(),
 });
 export const ListPairsResponse = zod.array(ListPairsResponseItem);
 

@@ -1,8 +1,8 @@
 import { db, signalsTable } from "@workspace/db";
-import { and, desc, eq, gt, sql } from "drizzle-orm";
+import { and, desc, eq, sql } from "drizzle-orm";
 import { fetchCandles } from "./binance";
 import { ALL_STRATEGIES, type StrategyDefinition } from "./strategies";
-import { SUPPORTED_PAIRS, SUPPORTED_TIMEFRAMES } from "./meta";
+import { BACKGROUND_WATCHLIST } from "./meta";
 import { logger } from "./logger";
 
 type Snapshot = {
@@ -197,25 +197,33 @@ export function startBackgroundSignalLoop() {
   if (backgroundLoopStarted) return;
   backgroundLoopStarted = true;
   const tick = async () => {
-    for (const p of SUPPORTED_PAIRS) {
-      for (const tf of SUPPORTED_TIMEFRAMES) {
+    for (const entry of BACKGROUND_WATCHLIST) {
+      for (const tf of entry.timeframes) {
         try {
-          await generateSignals(p.symbol, tf.value, { persist: true });
+          await generateSignals(entry.symbol, tf, { persist: true });
         } catch (err) {
           logger.warn(
-            { err, pair: p.symbol, timeframe: tf.value },
+            { err, pair: entry.symbol, timeframe: tf },
             "Background snapshot failed",
           );
         }
+        // Stagger Yahoo requests slightly to be polite.
+        await new Promise((r) => setTimeout(r, 250));
       }
     }
   };
-  // Run once immediately, then every 60s
+  // Run once immediately, then every 5 minutes (popular instruments only).
   void tick().catch((err) => logger.error({ err }, "Initial snapshot failed"));
-  setInterval(() => {
-    void tick().catch((err) => logger.error({ err }, "Background snapshot failed"));
-  }, 60_000);
-  logger.info("Background signal loop started");
+  setInterval(
+    () => {
+      void tick().catch((err) => logger.error({ err }, "Background snapshot failed"));
+    },
+    5 * 60_000,
+  );
+  logger.info(
+    { instruments: BACKGROUND_WATCHLIST.length },
+    "Background signal loop started",
+  );
 }
 
 export async function getStrategyPerformance(pair: string, timeframe: string) {

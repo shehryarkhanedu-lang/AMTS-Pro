@@ -256,10 +256,14 @@ components:
 
     Pair:
       type: object
-      required: [symbol, label]
+      required: [symbol, label, assetClass, assetClassLabel]
       properties:
         symbol: { type: string }
         label: { type: string }
+        assetClass:
+          type: string
+          enum: [CRYPTO, FOREX, COMMODITIES, INDICES, ETFS, STOCKS]
+        assetClassLabel: { type: string }
 
     Timeframe:
       type: object

@@ -5,8 +5,11 @@
  * AMTS Pro – Multi-Strategy Trading Intelligence Platform API
  * OpenAPI spec version: 0.1.0
  */
+import type { PairAssetClass } from "./pairAssetClass";
 
 export interface Pair {
   symbol: string;
   label: string;
+  assetClass: PairAssetClass;
+  assetClassLabel: string;
 }

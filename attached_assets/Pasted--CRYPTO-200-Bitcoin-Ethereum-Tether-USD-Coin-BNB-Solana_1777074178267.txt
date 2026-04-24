@@ -1,0 +1,751 @@
+✅ CRYPTO (200+)
+Bitcoin
+Ethereum
+Tether
+USD Coin
+BNB
+Solana
+XRP
+Cardano
+Dogecoin
+TRON
+Avalanche
+Polkadot
+Chainlink
+Polygon
+Litecoin
+Shiba Inu
+Bitcoin Cash
+Uniswap
+Toncoin
+NEAR Protocol
+Stellar
+Monero
+Aptos
+Arbitrum
+Optimism
+Cosmos
+Filecoin
+Internet Computer
+VeChain
+Theta Network
+Tezos
+Algorand
+Aave
+Synthetix
+Maker
+Curve DAO Token
+PancakeSwap
+Fantom
+Axie Infinity
+The Sandbox
+Decentraland
+Gala
+Enjin Coin
+Chiliz
+Basic Attention Token
+Zcash
+Dash
+EOS
+IOTA
+NEO
+Kusama
+Waves
+Flow
+Harmony
+Kava
+Helium
+Render
+Immutable X
+Lido DAO
+Rocket Pool
+Compound
+Yearn Finance
+dYdX
+1inch
+Loopring
+SushiSwap
+Balancer
+Kyber Network
+Zilliqa
+Qtum
+Ontology
+ICON
+Nano
+Holo
+Ravencoin
+Decred
+Siacoin
+Celo
+NEM
+Audius
+Ocean Protocol
+Ankr
+Biconomy
+Gnosis
+Trust Wallet Token
+Mask Network
+WAX
+SKALE
+Conflux
+COTI
+Flux
+Injective
+Terra Classic
+Terra
+Kaspa
+Pepe
+Floki
+Bonk
+Wojak
+Dogelon Mars
+Baby Doge Coin
+SafeMoon
+ApeCoin
+Blur
+LooksRare
+XDC Network
+Sui
+Sei
+Celestia
+Stacks
+Mantle
+Ronin
+WOO Network
+GRT (The Graph)
+Fetch.ai
+SingularityNET
+Akash Network
+Numeraire
+Band Protocol
+API3
+iExec RLC
+Cartesi
+Livepeer
+Storj
+Arweave
+BitTorrent
+Chia
+Mina
+Golem
+IOST
+Polymesh
+Secret Network
+Nervos Network
+Elrond (MultiversX)
+MultiversX
+OMG Network
+0x
+Lisk
+Ark
+Status
+Pundi X
+Dent
+Civic
+Request
+Origin Protocol
+Loom Network
+Augur
+Bancor
+Ren
+Wanchain
+Orchid
+Power Ledger
+Centrifuge
+Energy Web Token
+ICONOMI
+Verge
+Komodo
+Steem
+Syscoin
+Stratis
+Digibyte
+Vertcoin
+Bitcoin SV
+Theta Fuel
+TomoChain
+Moonbeam
+Moonriver
+Acala
+Astar
+Shiden
+Glimmer
+JOE
+BENQI
+GMX
+Gains Network
+Radiant Capital
+Pendle
+Convex Finance
+Frax
+Frax Share
+Liquity
+LUKSO
+Wormhole
+JasmyCoin
+Klaytn
+Huobi Token
+OKB
+GateToken
+Cronos
+Nexo
+Celsius
+SwissBorg
+Crypto.com Coin
+SFP
+VGX
+FTX Token
+Serum
+Raydium
+Orca
+Stepn
+Audius
+Illuvium
+MAGIC
+Treasure
+Merit Circle
+Yield Guild Games
+Alien Worlds
+My Neighbor Alice
+Ultra
+Star Atlas
+Gods Unchained
+Smooth Love Potion
+Ronin
+WEMIX
+Tokamak Network
+RSS3
+Alchemy Pay
+Kishu Inu
+Akita Inu
+Samoyedcoin
+Jupiter
+Pyth Network
+Jito
+Marinade
+Bonfida
+Metis
+Boba Network
+Civic
+Dusk Network
+Crown
+Dentacoin
+StormX
+Sologenic
+NKN
+Verasity
+OriginTrail
+SuperVerse
+Galxe
+Hooked Protocol
+Green Satoshi Token
+Gains Network
+Alchemix
+Badger DAO
+BarnBridge
+Perpetual Protocol
+Rally
+Celer Network
+DODO
+Alpha Venture DAO
+Adventure Gold
+Spell Token
+Toko Token
+Bitcoin Gold
+Horizen
+WazirX
+Theta
+Bitget Token
+BitMart Token
+CoinEx Token
+Pax Dollar
+TrueUSD
+DAI
+USDD
+FRAX
+✅ FOREX PAIRS (80+)
+EUR/USD
+GBP/USD
+USD/JPY
+USD/CHF
+AUD/USD
+USD/CAD
+NZD/USD
+EUR/GBP
+EUR/JPY
+GBP/JPY
+AUD/JPY
+CHF/JPY
+CAD/JPY
+NZD/JPY
+EUR/AUD
+EUR/CAD
+EUR/CHF
+EUR/NZD
+GBP/AUD
+GBP/CAD
+GBP/CHF
+GBP/NZD
+AUD/CAD
+AUD/CHF
+AUD/NZD
+CAD/CHF
+NZD/CAD
+NZD/CHF
+USD/SEK
+USD/NOK
+USD/DKK
+USD/PLN
+USD/HUF
+USD/TRY
+USD/ZAR
+USD/MXN
+USD/SGD
+USD/HKD
+USD/CNH
+USD/INR
+USD/THB
+USD/KRW
+USD/TWD
+USD/MYR
+USD/IDR
+USD/PHP
+USD/VND
+EUR/SEK
+EUR/NOK
+EUR/DKK
+EUR/PLN
+EUR/HUF
+EUR/TRY
+EUR/ZAR
+EUR/MXN
+GBP/SEK
+GBP/NOK
+GBP/DKK
+GBP/PLN
+AUD/SGD
+AUD/HKD
+NZD/SGD
+CAD/SGD
+CHF/SGD
+JPY/SGD
+SGD/JPY
+ZAR/JPY
+TRY/JPY
+MXN/JPY
+NOK/JPY
+SEK/JPY
+HKD/JPY
+CNH/JPY
+INR/JPY
+BRL/USD
+USD/BRL
+USD/RUB
+EUR/RUB
+GBP/RUB
+USD/AED
+USD/SAR
+USD/QAR
+USD/KWD
+USD/BHD
+USD/OMR
+✅ COMMODITIES (40+)
+
+Gold
+Silver
+Platinum
+Palladium
+Copper
+Aluminum
+Nickel
+Zinc
+Lead
+Tin
+Iron Ore
+Crude Oil WTI
+Brent Oil
+Natural Gas
+Gasoline
+Heating Oil
+Coal
+Uranium
+Wheat
+Corn
+Soybeans
+Oats
+Rice
+Sugar
+Coffee
+Cocoa
+Cotton
+Orange Juice
+Lumber
+Milk
+Live Cattle
+Lean Hogs
+Feeder Cattle
+Palm Oil
+Canola
+Soybean Oil
+Rapeseed
+Barley
+Rubber
+Ethanol
+
+✅ STOCK INDICES (50+)
+
+S&P 500
+NASDAQ 100
+Dow Jones
+Russell 2000
+VIX
+DAX 40
+FTSE 100
+CAC 40
+Euro Stoxx 50
+IBEX 35
+FTSE MIB
+AEX
+SMI
+OMX Stockholm 30
+Nikkei 225
+TOPIX
+Hang Seng
+Shanghai Composite
+Shenzhen Composite
+CSI 300
+KOSPI
+ASX 200
+Nifty 50
+Sensex
+Taiwan Weighted Index
+Straits Times Index
+SET Index
+JSE Top 40
+Bovespa
+MOEX Russia Index
+S&P/TSX Composite
+Mexico IPC
+Dow Jones Transport
+Dow Jones Utility
+S&P MidCap 400
+S&P SmallCap 600
+NASDAQ Composite
+NYSE Composite
+Wilshire 5000
+MSCI World
+MSCI Emerging Markets
+MSCI EAFE
+S&P Global 100
+FTSE China 50
+S&P 500 Futures
+NASDAQ 100 Futures
+Dow Futures
+DAX Futures
+FTSE Futures
+Hang Seng Futures
+
+✅ ETFs (80+)
+SPY
+QQQ
+DIA
+IWM
+VOO
+VTI
+IVV
+SCHD
+ARKK
+ARKQ
+ARKW
+ARKG
+GLD
+SLV
+USO
+UNG
+XLF
+XLK
+XLE
+XLY
+XLP
+XLV
+XLI
+XLB
+XLU
+XLC
+XBI
+SMH
+SOXX
+VUG
+VTV
+VEA
+VWO
+EEM
+EFA
+TLT
+IEF
+SHY
+HYG
+LQD
+BND
+AGG
+VNQ
+IYR
+GDX
+GDXJ
+SPXL
+SPXS
+TQQQ
+SQQQ
+UVXY
+VXX
+BITO
+IBIT
+FBTC
+GBTC
+MSTR ETF
+BLOK
+ICLN
+TAN
+PBW
+QCLN
+LIT
+XOP
+KRE
+XRT
+IYT
+ITB
+XHB
+VYM
+DVY
+SDY
+SPHD
+JEPI
+JEPQ
+PFF
+DBC
+IAU
+SPLG
+VO
+VB
+VIG
+VGT
+VHT
+VCR
+VDC
+VDE
+✅ STOCKS / COMPANIES (200+)
+Apple
+Microsoft
+Amazon
+Alphabet
+Google
+Meta Platforms
+Tesla
+NVIDIA
+Netflix
+AMD
+Intel
+IBM
+Oracle
+Adobe
+Salesforce
+PayPal
+Visa
+Mastercard
+American Express
+Berkshire Hathaway
+JP Morgan Chase
+Bank of America
+Morgan Stanley
+Goldman Sachs
+Citigroup
+Wells Fargo
+HSBC
+Barclays
+Deutsche Bank
+UBS
+BlackRock
+Charles Schwab
+Robinhood
+Coinbase
+Block (Square)
+Shopify
+Alibaba
+Tencent
+Baidu
+JD.com
+Pinduoduo
+Meituan
+Xiaomi
+Samsung Electronics
+Sony
+Panasonic
+LG Electronics
+Toyota
+Honda
+Ford
+General Motors
+Ferrari
+BMW
+Mercedes-Benz
+Volkswagen
+Stellantis
+Rivian
+Lucid Motors
+NIO
+BYD
+XPeng
+Li Auto
+Airbnb
+Uber
+Lyft
+Booking Holdings
+Expedia
+McDonald’s
+Starbucks
+Coca-Cola
+PepsiCo
+Walmart
+Costco
+Target
+Home Depot
+Lowe’s
+Nike
+Adidas
+Puma
+Under Armour
+LVMH
+Gucci (Kering)
+Hermes
+Richemont
+Procter & Gamble
+Unilever
+Nestle
+Colgate-Palmolive
+Johnson & Johnson
+Pfizer
+Moderna
+AstraZeneca
+Novartis
+Roche
+Merck
+Bristol-Myers Squibb
+Gilead Sciences
+AbbVie
+Amgen
+Eli Lilly
+Bayer
+Sanofi
+GlaxoSmithKline
+Thermo Fisher Scientific
+Danaher
+Abbott Laboratories
+Medtronic
+Stryker
+Intuitive Surgical
+UnitedHealth
+CVS Health
+Walgreens
+Anthem (Elevance)
+Cigna
+Humana
+Boeing
+Airbus
+Lockheed Martin
+Raytheon Technologies
+Northrop Grumman
+General Electric
+Siemens
+Honeywell
+3M
+Caterpillar
+Deere & Company
+FedEx
+UPS
+DHL
+Maersk
+ExxonMobil
+Chevron
+Shell
+BP
+TotalEnergies
+Saudi Aramco
+Petrobras
+Gazprom
+ConocoPhillips
+Marathon Oil
+Occidental Petroleum
+Halliburton
+Schlumberger
+Baker Hughes
+Rio Tinto
+BHP
+Vale
+Freeport-McMoRan
+Glencore
+Newmont
+Barrick Gold
+Anglo American
+ArcelorMittal
+Nucor
+Steel Dynamics
+Alcoa
+NextEra Energy
+Duke Energy
+Dominion Energy
+Southern Company
+Enel
+Iberdrola
+National Grid
+AT&T
+Verizon
+T-Mobile
+Vodafone
+Deutsche Telekom
+Orange
+Comcast
+Charter Communications
+Disney
+Warner Bros Discovery
+Paramount Global
+Spotify
+Snap
+Pinterest
+Zoom
+DocuSign
+Palantir
+Snowflake
+ServiceNow
+Datadog
+CrowdStrike
+Fortinet
+Palo Alto Networks
+Zscaler
+Okta
+Cloudflare
+Micron Technology
+Texas Instruments
+Qualcomm
+Broadcom
+ASML
+TSMC
+Samsung
+Arm Holdings
+Applied Materials
+Lam Research
+KLA Corporation
+Marvell
+Seagate
+Western Digital
+Lenovo
+HP
+Dell Technologies
+Cisco
+VMware
+Accenture
+Infosys
+Tata Consultancy Services
+Wipro
+HCL Technologies
+Capgemini
+SAP

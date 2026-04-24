@@ -1,14 +1,14 @@
 import { useTradingSettings } from "@/components/trading-settings-context";
-import { useListPairs, useListTimeframes, StrategyMode } from "@workspace/api-client-react";
+import { useListTimeframes, StrategyMode } from "@workspace/api-client-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
+import { PairPicker } from "@/components/pair-picker";
 
 export default function Settings() {
   const { pair, timeframe, mode, setPair, setTimeframe, setMode } = useTradingSettings();
-  const { data: pairs } = useListPairs();
   const { data: timeframes } = useListTimeframes();
 
   return (
@@ -29,19 +29,11 @@ export default function Settings() {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">
-            <Label>Default Trading Pair</Label>
-            <Select value={pair} onValueChange={setPair}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select pair" />
-              </SelectTrigger>
-              <SelectContent>
-                {pairs?.map((p) => (
-                  <SelectItem key={p.symbol} value={p.symbol}>
-                    {p.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <Label>Default Market</Label>
+            <PairPicker value={pair} onChange={setPair} />
+            <p className="text-xs text-muted-foreground">
+              Search across crypto, forex, commodities, indices, ETFs and stocks.
+            </p>
           </div>
 
           <div className="space-y-2">

@@ -1,7 +1,6 @@
 import { useTradingSettings } from "./trading-settings-context";
 import { Link, useLocation } from "wouter";
 import {
-  useListPairs,
   useListTimeframes,
   StrategyMode,
 } from "@workspace/api-client-react";
@@ -9,11 +8,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { PairPicker } from "./pair-picker";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const { pair, timeframe, mode, setPair, setTimeframe, setMode } = useTradingSettings();
-  const { data: pairs } = useListPairs();
   const { data: timeframes } = useListTimeframes();
 
   const links = [
@@ -51,21 +50,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </nav>
 
           <div className="ml-auto flex items-center gap-4">
-            {pairs && timeframes && (
+            <PairPicker value={pair} onChange={setPair} />
+            {timeframes && (
               <>
-                <Select value={pair} onValueChange={setPair}>
-                  <SelectTrigger className="w-[120px] h-8 bg-secondary border-none text-xs">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {pairs.map((p) => (
-                      <SelectItem key={p.symbol} value={p.symbol}>
-                        {p.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-
                 <Select value={timeframe} onValueChange={setTimeframe}>
                   <SelectTrigger className="w-[80px] h-8 bg-secondary border-none text-xs">
                     <SelectValue />

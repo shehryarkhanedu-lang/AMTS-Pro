@@ -51,9 +51,23 @@ export const RiskLevel = {
   HIGH: "HIGH",
 } as const;
 
+export type PairAssetClass =
+  (typeof PairAssetClass)[keyof typeof PairAssetClass];
+
+export const PairAssetClass = {
+  CRYPTO: "CRYPTO",
+  FOREX: "FOREX",
+  COMMODITIES: "COMMODITIES",
+  INDICES: "INDICES",
+  ETFS: "ETFS",
+  STOCKS: "STOCKS",
+} as const;
+
 export interface Pair {
   symbol: string;
   label: string;
+  assetClass: PairAssetClass;
+  assetClassLabel: string;
 }
 
 export interface Timeframe {

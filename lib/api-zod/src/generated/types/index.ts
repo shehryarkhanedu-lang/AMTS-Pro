@@ -20,6 +20,7 @@ export * from "./getTickerParams";
 export * from "./getTopSignalParams";
 export * from "./healthStatus";
 export * from "./pair";
+export * from "./pairAssetClass";
 export * from "./riskLevel";
 export * from "./signal";
 export * from "./signalDistribution";
